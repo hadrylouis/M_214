@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 if(!isset($_GET['lang'])){
   $_GET['lang'] = 'fr';
@@ -62,6 +63,21 @@ $tr = json_decode($contenu_fichier_json, true);
       </div>
 
     </form>
+
+    <!-- TEST IMAGE -->
+    <?php
+    if(isset($_SESSION['img'])){
+      echo "Your image :"  . $_SESSION['img'];
+    ?>
+    <img src="uploads/userFiles/<?php echo $_SESSION['img'] ?>" alt="" height="100" width="">
+    <?php
+  } else {
+    echo "go to /test.php to load an image (THIS IS TEST)";
+  }
+
+    ?>
+
+
     <div id="page-wrapper">
         <div id="header" class="">
             <div id="header_menu" class="inner animated fadeInUpBig">
