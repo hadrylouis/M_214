@@ -1,36 +1,91 @@
+/* Disable bootstrap CSS */
+a:hover {
+  text-decoration: none;
+  color: black;
+  cursor: default;
+}
+
+a:active {
+  background-color: none;
+  color: white;
+  text-decoration: none;
+}
+
+/*************************/
+
+/* Language Menu */
+#changeLang {
+  position: fixed;
+  float: right;
+  right: 0px;
+  z-index: 99;
+  width: 200px;
+  height: 40px;
+}
+
+.language_margin {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+#language {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  height: 40px;
+  width: 40px;
+  background-color: white;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+/*************************/
+
+
+#start_button {
+  z-index: 100;
+  cursor: pointer;
+}
+
+#header_menu {
+  z-index: 10;
+}
+
 #owner {
   padding-top: 20px;
 }
+
 #module {
   color: #fff;
   padding-top: 10px;
 }
 
-.carousel {
-  padding-bottom: 100px
+#title {
+  text-align: center;
+  padding-bottom: 50px;
+  padding-top: 50px;
 }
 
-.card_first {
-  margin-right: 100px;
+.table {
+  border-radius: 5px;
+  width: 50%;
+  margin: 0px auto;
+  float: none;
 }
 
-.deck_card {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-/*justify-content: space-around;*/
-  margin-top: 180px;
-  margin-bottom: 180px;
+#content {
+  text-align: center;
+  width: 600px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+
 }
 
-.card {
-  width: 300px;
-  /*border: solid black 2px;*/
-  box-shadow: rgb(0, 0, 0) 0px 1px 4px 0px;
-  order: 0;
-  margin-bottom: 0;
-}
 
-.card_body {
-  padding: 10px 10px 10px 10px;
+
+
+
+#section_tableJson {
+  margin-bottom: 150px;
 }

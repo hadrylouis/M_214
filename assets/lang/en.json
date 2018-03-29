@@ -1,0 +1,10 @@
+{
+    "header": {
+      "title":"Hello, welcome to this site.",
+      "start":"Start",
+      "content":"This site was designed as part of module 214 of the CFC Infomartician Training by ICT."
+    },
+    "JsonTable": {
+      "title":"Example of a table created from a JSON file"
+    }
+}
