@@ -1,23 +1,24 @@
 <?php
-session_start();
+    session_start();
 
-if(!isset($_GET['lang'])){
-  $_GET['lang'] = 'fr';
-}
+    if(!isset($_GET['lang'])){
+      $_GET['lang'] = 'fr';
+    }
 
 
-$lang = $fr_class = $en_class = '';
-/* Récupération de la langue dans la chaîne get */
-$lang = (isset($_GET['lang']) && file_exists('assets/lang/'.$_GET['lang'].'.json')) ? $_GET['lang'] : 'fr';
-/* Définition de la class pour les liens de langue */
-if ($lang == 'fr')
-    $fr_class = ' class="active"';
-else
-    $en_class = ' class="active"';
-/* Récupération du contenu du fichier .json */
-$contenu_fichier_json = file_get_contents('assets/lang/'.$lang.'.json');
-/* Les données sont récupérées sous forme de tableau (true) */
-$tr = json_decode($contenu_fichier_json, true);
+    $lang = $fr_class = $en_class = '';
+    /* Récupération de la langue dans la chaîne get */
+    $lang = (isset($_GET['lang']) && file_exists('assets/lang/'.$_GET['lang'].'.json')) ? $_GET['lang'] : 'fr';
+    /* Définition de la class pour les liens de langue */
+    if ($lang == 'fr'){
+        $fr_class = ' class="active"';
+    }else{
+        $en_class = ' class="active"';
+    }
+    /* Récupération du contenu du fichier .json */
+    $contenu_fichier_json = file_get_contents('assets/lang/'.$lang.'.json');
+    /* Les données sont récupérées sous forme de tableau (true) */
+    $tr = json_decode($contenu_fichier_json, true);
 
 ?>
 
@@ -37,46 +38,33 @@ $tr = json_decode($contenu_fichier_json, true);
     <form id="changeLang" class="" action="" method="GET">
 
       <?php
-      if($_GET['lang'] == "fr"){
+        if($_GET['lang'] == "fr"){
+            echo ' <input type="hidden" name="lang" value="en">';
+        } else if($_GET['lang'] == "en"){
+            echo '<input type="hidden" name="lang" value="fr">';
+        }
       ?>
-        <input type="hidden" name="lang" value="en">
-      <?php
-    } else if($_GET['lang'] == "en"){
-      ?>
-      <input type="hidden" name="lang" value="fr">
-      <?php
-    }
-      ?>
-
-
       <div id="language" class="language_margin">
         <?php
-        if($_GET['lang'] == "fr"){?>
-          <img src="images/flag/en.png" alt="FR Flag"  class="" style="margin-top: 5px; margin-left: 5px; height: 30px; width: 30px; border-radius: 30px;">
-        <?php
-      } else {
-        ?>
-        <img src="images/flag/fr.png" alt="FR Flag"  class="" style="margin-top: 5px; margin-left: 5px; height: 30px; width: 30px; border-radius: 30px;">
-        <?php
-      }
+        if($_GET['lang'] == "fr"){
+          echo '<img src="images/flag/en.png" alt="FR Flag"  class="" style="margin-top: 5px; margin-left: 5px; height: 30px; width: 30px; border-radius: 30px;">';
+        } else {
+          echo '<img src="images/flag/fr.png" alt="FR Flag"  class="" style="margin-top: 5px; margin-left: 5px; height: 30px; width: 30px; border-radius: 30px;">';
+        }
        ?>
-      </div>
 
+      </div>
     </form>
 
     <!-- TEST IMAGE -->
     <?php
     if(isset($_SESSION['img'])){
       echo "Your image :"  . $_SESSION['img'];
+      echo '<img src="uploads/userFiles/'.echo $_SESSION['img'].'" alt="imgLoaded" height="100" width="">';
+    } else {
+        echo "go to /test.php to load an image (THIS IS TEST)";
+    }
     ?>
-    <img src="uploads/userFiles/<?php echo $_SESSION['img'] ?>" alt="" height="100" width="">
-    <?php
-  } else {
-    echo "go to /test.php to load an image (THIS IS TEST)";
-  }
-
-    ?>
-
 
     <div id="page-wrapper">
         <div id="header" class="">
@@ -116,28 +104,6 @@ $tr = json_decode($contenu_fichier_json, true);
 
           </div>
         </section>
-        <!--
-        <section class="deck_card">
-            <article class="card card_first">
-              <a href="https://hackmd.io/p/rJuLKiquG" class="image"><img src="images/header.jpg" alt="" /></a>
-              <div class="card_body">
-                <header>
-                  <h3><a href="https://hackmd.io/p/rJuLKiquG">Présentation JSON</a></h3>
-                </header>
-                <p>Ici vous pouvez trouver le lien de la présentation que nous avons conçu pour pour le cours.</p>
-              </div>
-            </article>
-            <article class="card">
-              <a href="#" class="image"><img src="images/index3.ico" alt="" /></a>
-              <div class="card_body">
-                <header>
-                  <h3><a href="#">Page pour tester</a></h3>
-                </header>
-                <p>Tester ici vous vos JSON dans un template web </p>
-              </div>
-            </article>
-        </section>
-      -->
         <div id="footer">
           <div class="container">
             <div class="row">
