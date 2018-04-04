@@ -1,27 +1,5 @@
 <?php
-
     require_once "init.php";
-    session_start();
-
-    if(!isset($_GET['lang'])){
-      $_GET['lang'] = 'fr';
-    }
-
-
-    $lang = $fr_class = $en_class = '';
-    /* Récupération de la langue dans la chaîne get */
-    $lang = (isset($_GET['lang']) && file_exists('assets/lang/'.$_GET['lang'].'.json')) ? $_GET['lang'] : 'fr';
-    /* Définition de la class pour les liens de langue */
-    if ($lang == 'fr'){
-        $fr_class = ' class="active"';
-    }else{
-        $en_class = ' class="active"';
-    }
-    /* Récupération du contenu du fichier .json */
-    $contenu_fichier_json = file_get_contents('assets/lang/'.$lang.'.json');
-    /* Les données sont récupérées sous forme de tableau (true) */
-    $tr = json_decode($contenu_fichier_json, true);
-
 ?>
 
 <!DOCTYPE HTML>
@@ -37,7 +15,7 @@
     <link rel="stylesheet" href="assets/css/custom.css">
   </head>
   <body class="homepage">
-    <form id="changeLang" class="" action="" method="GET">
+    <form id="changeLang" action="index.php" method="GET">
 
       <?php
         if($_GET['lang'] == "fr"){
@@ -57,17 +35,6 @@
 
       </div>
     </form>
-
-    <!-- TEST IMAGE -->
-    <?php
-    if(isset($_SESSION['img'])){
-      echo "Your image :"  . $_SESSION['img'];
-      echo '<img src="uploads/userFiles/'. $_SESSION['img'] .'" alt="imgLoaded" height="100" width="">';
-    } else {
-        echo "go to /test.php to load an image (THIS IS TEST)";
-    }
-    ?>
-
     <div id="page-wrapper">
         <div id="header" class="">
             <div id="header_menu" class="inner animated fadeInUpBig">
@@ -81,21 +48,39 @@
               </footer>
             </div>
         </div>
+
+        <!-- inner banner -->
         <section id="banner">
           <header>
             <h2><?php echo $tr['header']['title'] ?></h2>
-            <p>
-              <?php echo $tr['header']['content'] ?>
-            </p>
+            <p><?php echo $tr['header']['content'] ?></p>
           </header>
         </section>
+
+        <!-- upload -->
+        <section id="upload">
+            <header>
+                <div class"container">
+                    <!-- TEST IMAGE -->
+                    <?php
+                        if(isset($_SESSION['img'])){
+                          echo "Your image :"  . $_SESSION['img'] . " <br /> ";
+                          echo $filename . " " . $filetype . " " . $filesize;
+                          echo '<img src="uploads/userFiles/'. $_SESSION['img'] .'" alt="imgLoaded" height="100" width="">';
+                        }
+                    ?>
+                    <form class="" action="index.php" method="post" enctype="multipart/form-data">
+                      <input type="file" name="img">
+                      <input type="submit" value="Submit">
+                    </form>
+                </div>
+            </header>
+        </section>
+
+        <!-- display-jsons -->
         <section id="section_tableJson">
-          <div class="">
+          <div class="array-json">
             <h1 id="title"><?php echo $tr['JsonTable']['title'] ?></h1>
-
-            <div id="id="tablejson"" class="">
-            </div>
-
             <table id="tablejson" class="table table-striped w-50 p-3 text-centered">
               <thead class="thead-inverse">
                 <tr></tr>
@@ -105,6 +90,7 @@
             </table>
           </div>
         </section>
+
         <div id="footer">
           <div class="container">
             <div class="row">

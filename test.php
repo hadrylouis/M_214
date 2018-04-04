@@ -13,7 +13,7 @@ if (isset($_FILES['img'])){
   $_SESSION['img'] = $_FILES['img']['name'];
 
   if(isset($_SESSION['img'])){
-    echo "Your image :"  . $_SESSION['img'];
+    echo "Your image : "  . $_SESSION['img'];
   }
 
 }

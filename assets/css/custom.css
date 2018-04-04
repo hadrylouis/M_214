@@ -1,17 +1,13 @@
-/* Disable bootstrap CSS */
+/* Language Menu */
 #header_menu footer a {
   color: white;
+  text-decoration: none;
 }
 
 #header_menu footer a:hover {
   text-decoration: none;
 }
 
-
-
-/*************************/
-
-/* Language Menu */
 #changeLang {
   position: fixed;
   float: right;
