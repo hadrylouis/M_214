@@ -1,4 +1,6 @@
 <?php
+
+    require_once "init.php";
     session_start();
 
     if(!isset($_GET['lang'])){
@@ -47,9 +49,9 @@
       <div id="language" class="language_margin">
         <?php
         if($_GET['lang'] == "fr"){
-          echo '<img src="images/flag/en.png" alt="FR Flag"  class="" style="margin-top: 5px; margin-left: 5px; height: 30px; width: 30px; border-radius: 30px;">';
+          echo '<img src="images/flag/en.png" alt="EN Flag"  class="langIMG">';
         } else {
-          echo '<img src="images/flag/fr.png" alt="FR Flag"  class="" style="margin-top: 5px; margin-left: 5px; height: 30px; width: 30px; border-radius: 30px;">';
+          echo '<img src="images/flag/fr.png" alt="FR Flag"  class="langIMG">';
         }
        ?>
 
@@ -60,7 +62,7 @@
     <?php
     if(isset($_SESSION['img'])){
       echo "Your image :"  . $_SESSION['img'];
-      echo '<img src="uploads/userFiles/'.echo $_SESSION['img'].'" alt="imgLoaded" height="100" width="">';
+      echo '<img src="uploads/userFiles/'. $_SESSION['img'] .'" alt="imgLoaded" height="100" width="">';
     } else {
         echo "go to /test.php to load an image (THIS IS TEST)";
     }
@@ -101,7 +103,6 @@
               <tbody>
               </tbody>
             </table>
-
           </div>
         </section>
         <div id="footer">
@@ -118,14 +119,13 @@
           </div>
         </div>
     </div>
-      <script src="assets/js/jquery.min.js"></script>
-      <script src="assets/js/jquery.dropotron.min.js"></script>
-      <script src="assets/js/jquery.scrolly.min.js"></script>
-      <script src="assets/js/jquery.onvisible.min.js"></script>
-      <script src="assets/js/skel.min.js"></script>
-      <script src="assets/js/util.js"></script>
-      <script src="assets/js/main.js"></script>
-      <script type="text/javascript" src="assets/js/custom.js"></script>
-      </script>
+    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.dropotron.min.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.scrolly.min.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.onvisible.min.js" type="text/javascript"></script>
+    <script src="assets/js/skel.min.js" type="text/javascript"></script>
+    <script src="assets/js/util.js" type="text/javascript"></script>
+    <script src="assets/js/main.js" type="text/javascript"></script>
+    <script src="assets/js/custom.js" type="text/javascript"></script>
   </body>
 </html>

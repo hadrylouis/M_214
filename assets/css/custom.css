@@ -1,15 +1,13 @@
 /* Disable bootstrap CSS */
-a:hover {
-  text-decoration: none;
-  color: black;
-  cursor: default;
+#header_menu footer a {
+  color: white;
 }
 
-a:active {
-  background-color: none;
-  color: white;
+#header_menu footer a:hover {
   text-decoration: none;
 }
+
+
 
 /*************************/
 
@@ -39,6 +37,14 @@ a:active {
   border-radius: 40px;
   cursor: pointer;
 }
+.langIMG{
+    margin-top: 5px;
+    margin-left: 5px;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+}
+
 
 /*************************/
 
