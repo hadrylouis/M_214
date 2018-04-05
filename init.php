@@ -3,16 +3,17 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
+
     session_start();
 
     #### upload ####
     try {
-
-        if (
-            !isset($_FILES['img']['error']) ||
-            is_array($_FILES['img']['error'])
-        ) {
-            throw new RuntimeException('Invalid parameters.');
+        // Submit but no file given
+        if (!isset($_FILES['img']['error']) ||
+             is_array($_FILES['img']['error'])) {
+                 session_destroy();
+                 session_unset();
+                 throw new RuntimeException('Invalid parameters.');
         }
 
         // Check $_FILES['img']['error'] value.

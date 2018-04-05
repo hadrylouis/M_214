@@ -62,16 +62,15 @@
         </section>
 
         <!-- upload -->
-
-            <div class"container">
-                <form class="" action="upload-file" method="post" enctype="multipart/form-data">
-                  <input type="file" name="img">
-                  <input type="submit" value="Submit">
-                </form>
-            </div>
-            <?php
-                echo  "Name : " . $filename . "<br />type : " . $filetype . "<br />size : " . $filesize . " bytes";
-            ?>
+        <div class"container">
+            <form class="" action="upload-file" method="post" enctype="multipart/form-data">
+              <input type="file" name="img">
+              <input type="submit" value="Submit">
+            </form>
+        </div>
+        <?php
+            echo  "Name : " . $filename . "<br />type : " . $filetype . "<br />size : " . $filesize . " bytes";
+        ?>
 
         <!-- display-jsons -->
         <section id="section_tableJson">
@@ -84,7 +83,7 @@
               <tbody>
               </tbody>
             </table>
-          </div>
+        </div>
         </section>
 
         <div id="footer">

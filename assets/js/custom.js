@@ -4,16 +4,16 @@ $( document ).ready(function() {
 
     console.log( "Jquery ready!" );
 
-    // CHANGER LANGUE
+    //sub lang change
     $("#language").click(function() {
       $("#changeLang").submit();
     });
 
-    // AFFICHER BON JSON EN FONCTION DE LA LANGUE
+
     $.getJSON("assets/json/test.json", function(data) {
       var personnes = data;
 
-      // GET ALL KEY NAME
+      // printing header row
       for (var i = 0; i < 1; i++) {
         var obj = personnes[i];
         for (var j in obj ){
@@ -21,7 +21,7 @@ $( document ).ready(function() {
         }
       }
 
-      // LOOP THROW JSON AND RETURN DATA
+      // printing content rows
       $.each(personnes, function(k, obj) {
         $('#tablejson').append('<tr></tr>')
         $.each(obj, function(k2, val) {
