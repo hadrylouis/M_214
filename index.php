@@ -4,6 +4,7 @@
 
 <!DOCTYPE HTML>
 <html>
+
   <head>
     <title>JSON | Module 214</title>
     <meta charset="utf-8" />
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
     <link rel="stylesheet" href="assets/css/custom.css">
   </head>
+
   <body class="homepage">
     <form id="changeLang" action="index.php" method="GET">
 
@@ -35,7 +37,9 @@
 
       </div>
     </form>
+
     <div id="page-wrapper">
+
         <div id="header" class="">
             <div id="header_menu" class="inner animated fadeInUpBig">
               <header>
@@ -58,8 +62,7 @@
         </section>
 
         <!-- upload -->
-        <section id="upload">
-            <header>
+
                 <div class"container">
                     <!-- TEST IMAGE -->
                     <?php
@@ -74,8 +77,7 @@
                       <input type="submit" value="Submit">
                     </form>
                 </div>
-            </header>
-        </section>
+
 
         <!-- display-jsons -->
         <section id="section_tableJson">
@@ -104,7 +106,9 @@
             </div>
           </div>
         </div>
+
     </div>
+
     <script src="assets/js/jquery.min.js" type="text/javascript"></script>
     <script src="assets/js/jquery.dropotron.min.js" type="text/javascript"></script>
     <script src="assets/js/jquery.scrolly.min.js" type="text/javascript"></script>
@@ -113,5 +117,7 @@
     <script src="assets/js/util.js" type="text/javascript"></script>
     <script src="assets/js/main.js" type="text/javascript"></script>
     <script src="assets/js/custom.js" type="text/javascript"></script>
+
   </body>
+
 </html>
