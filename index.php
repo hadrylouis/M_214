@@ -8,7 +8,7 @@
   <head>
     <title>JSON | Module 214</title>
     <meta charset="utf-8" />
-    <link rel="icon" href="/images/index3.ico">
+    <link rel="icon" href="images/index3.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -63,21 +63,15 @@
 
         <!-- upload -->
 
-                <div class"container">
-                    <!-- TEST IMAGE -->
-                    <?php
-                        if(isset($_SESSION['img'])){
-                          echo "Your image :"  . $_SESSION['img'] . " <br /> ";
-                          echo $filename . " " . $filetype . " " . $filesize;
-                          echo '<img src="uploads/userFiles/'. $_SESSION['img'] .'" alt="imgLoaded" height="100" width="">';
-                        }
-                    ?>
-                    <form class="" action="index.php" method="post" enctype="multipart/form-data">
-                      <input type="file" name="img">
-                      <input type="submit" value="Submit">
-                    </form>
-                </div>
-
+            <div class"container">
+                <form class="" action="upload-file" method="post" enctype="multipart/form-data">
+                  <input type="file" name="img">
+                  <input type="submit" value="Submit">
+                </form>
+            </div>
+            <?php
+                echo  "Name : " . $filename . "<br />type : " . $filetype . "<br />size : " . $filesize . " bytes";
+            ?>
 
         <!-- display-jsons -->
         <section id="section_tableJson">
