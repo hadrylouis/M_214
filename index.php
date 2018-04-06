@@ -63,7 +63,7 @@
 
         <!-- upload -->
         <div class"container">
-            <form class="" action="upload-file" method="post" enctype="multipart/form-data">
+            <form class="" action="" method="post" enctype="multipart/form-data">
               <input type="file" name="img">
               <input type="submit" value="Submit">
             </form>

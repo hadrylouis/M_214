@@ -30,7 +30,7 @@
         }
 
         // Check filesize
-        if ($_FILES['img']['size'] > 1000000) {
+        if ($_FILES['img']['size'] > 3000000) {
             throw new RuntimeException('Exceeded filesize limit.');
         }
 
