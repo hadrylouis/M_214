@@ -61,16 +61,13 @@
           </header>
         </section>
 
-        <!-- upload -->
-        <div class"container">
-            <form class="" action="" method="post" enctype="multipart/form-data">
-              <input type="file" name="img">
-              <input type="submit" value="Submit">
-            </form>
-        </div>
+
         <?php
-            echo  "Name : " . $filename . "<br />type : " . $filetype . "<br />size : " . $filesize . " bytes";
+            /** echo  "Name : " . $filename . "<br />type : " . $filetype . "<br />size : " . $filesize . " bytes"; **/
         ?>
+
+        <!-- uploaded file name -->
+        <input type="hidden" id="userImgName" data-value="<?php echo $filename; ?>" />
 
         <!-- display-jsons -->
         <section id="section_tableJson">
@@ -85,6 +82,14 @@
             </table>
         </div>
         </section>
+
+        <!-- upload -->
+        <div class"container">
+            <form class="" action="" method="post" enctype="multipart/form-data">
+              <input type="file" name="uploadJsonFile">
+              <input type="submit" value="Submit">
+            </form>
+        </div>
 
         <div id="footer">
           <div class="container">

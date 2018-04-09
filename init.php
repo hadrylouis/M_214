@@ -9,15 +9,16 @@
     #### upload ####
     try {
         // Submit but no file given
-        if (!isset($_FILES['img']['error']) ||
-             is_array($_FILES['img']['error'])) {
+        if (!isset($_FILES['uploadJsonFile']['error']) ||
+             is_array($_FILES['uploadJsonFile']['error'])) {
                  session_destroy();
                  session_unset();
                  throw new RuntimeException('Invalid parameters.');
         }
 
-        // Check $_FILES['img']['error'] value.
-        switch ($_FILES['img']['error']) {
+
+        // Check $_FILES['uploadJsonFile']['error'] value.
+        switch ($_FILES['uploadJsonFile']['error']) {
             case UPLOAD_ERR_OK:
                 break;
             case UPLOAD_ERR_NO_FILE:
@@ -30,7 +31,7 @@
         }
 
         // Check filesize
-        if ($_FILES['img']['size'] > 3000000) {
+        if ($_FILES['uploadJsonFile']['size'] > 3000000) {
             throw new RuntimeException('Exceeded filesize limit.');
         }
 
@@ -38,14 +39,22 @@
          * check file type : P.S. json MIME type => application/javascript
          */
 
-        if (isset($_FILES['img'])){
-          $filename = $_FILES['img']['name'];
-          $filetype = $_FILES['img']['type'];
-          $filesize = $_FILES['img']['size'];
 
-          move_uploaded_file($_FILES["img"]["tmp_name"], "uploads/userFiles/" . $_FILES["img"]["name"]);
+        if (isset($_FILES['uploadJsonFile'])){
 
-          $_SESSION['img'] = $_FILES['img']['name'];
+          $filename = $_FILES['uploadJsonFile']['name'];
+          $filetype = $_FILES['uploadJsonFile']['type'];
+          $filesize = $_FILES['uploadJsonFile']['size'];
+          $filedir = "uploads/userFiles";
+          $fileextesion = strtolower(pathinfo($filedir . $filename ,PATHINFO_EXTENSION));
+
+          /** Check if uploaded file is JSON type **/
+          if($fileextesion != "json" ) {
+            throw new RuntimeException('Error NO JSON');
+          } else {
+            move_uploaded_file($_FILES["uploadJsonFile"]["tmp_name"], "uploads/userFiles/" . $_FILES["uploadJsonFile"]["name"]);
+            $_SESSION['uploadJsonFile'] = $_FILES['uploadJsonFile']['name'];
+          }
 
       } else {
           session_destroy();
@@ -74,6 +83,8 @@
       $_GET['lang'] = 'fr';
     }
 
+
+    #### load languge file ####
 
     $lang = $fr_class = $en_class = '';
     /* Récupération de la langue dans la chaîne get */

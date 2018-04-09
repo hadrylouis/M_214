@@ -9,8 +9,8 @@ $( document ).ready(function() {
       $("#changeLang").submit();
     });
 
-
-    $.getJSON("assets/json/test.json", function(data) {
+    // get uploaded file name and load it in table
+    $.getJSON("uploads/userFiles/" + $("#userImgName").data('value'), function(data) {
       var personnes = data;
 
       // printing header row
