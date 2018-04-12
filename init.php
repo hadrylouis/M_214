@@ -3,11 +3,13 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
+    echo exec('whoami');
 
-    session_start();
+
 
     #### upload ####
     try {
+          //session_start();
         // Submit but no file given
         if (!isset($_FILES['uploadJsonFile']['error']) ||
              is_array($_FILES['uploadJsonFile']['error'])) {
@@ -47,10 +49,10 @@
           $filesize = $_FILES['uploadJsonFile']['size'];
           $filedir = "uploads/userFiles";
           $fileextesion = strtolower(pathinfo($filedir . $filename ,PATHINFO_EXTENSION));
-
+          echo $fileextesion;
           /** Check if uploaded file is JSON type **/
           if($fileextesion != "json" ) {
-            throw new RuntimeException('Error NO JSON');
+            throw new RuntimeException(' Error NO JSON');
           } else {
             move_uploaded_file($_FILES["uploadJsonFile"]["tmp_name"], "uploads/userFiles/" . $_FILES["uploadJsonFile"]["name"]);
             $_SESSION['uploadJsonFile'] = $_FILES['uploadJsonFile']['name'];
@@ -85,7 +87,6 @@
 
 
     #### load languge file ####
-
     $lang = $fr_class = $en_class = '';
     /* Récupération de la langue dans la chaîne get */
     $lang = (isset($_GET['lang']) && file_exists('assets/lang/'.$_GET['lang'].'.json')) ? $_GET['lang'] : 'fr';
