@@ -3,25 +3,18 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-    echo exec('whoami');
 
 
-<<<<<<< HEAD
     $error = "";
 
     $fileextesion = "";
-=======
->>>>>>> be1cd145c2c4ff49db048e0190effc0d4250dfa6
 
     #### upload ####
 
     try {
-<<<<<<< HEAD
         /*
         //session_start();
-=======
           //session_start();
->>>>>>> be1cd145c2c4ff49db048e0190effc0d4250dfa6
         // Submit but no file given
         if (!isset($_FILES['uploadJsonFile']['error']) ||
              is_array($_FILES['uploadJsonFile']['error'])) {
@@ -63,7 +56,6 @@
           $filesize = $_FILES['uploadJsonFile']['size'];
           $filedir = "uploads/userFiles";
           $fileextesion = strtolower(pathinfo($filedir . $filename ,PATHINFO_EXTENSION));
-<<<<<<< HEAD
 
           //echo $fileextesion;
 
@@ -71,12 +63,10 @@
           if($fileextesion != "json" ) {
             //throw new RuntimeException('Error NO JSON');
             $error = "nojson";
-=======
           echo $fileextesion;
           /** Check if uploaded file is JSON type **/
           if($fileextesion != "json" ) {
             throw new RuntimeException(' Error NO JSON');
->>>>>>> be1cd145c2c4ff49db048e0190effc0d4250dfa6
           } else {
             move_uploaded_file($_FILES["uploadJsonFile"]["tmp_name"], "uploads/userFiles/" . $_FILES["uploadJsonFile"]["name"]);
             $_SESSION['uploadJsonFile'] = $_FILES['uploadJsonFile']['name'];
@@ -87,7 +77,8 @@
           //session_unset();
       }
 
-    } catch (RuntimeException $e) {
+    }
+  } catch (RuntimeException $e) {
         echo $e->getMessage();
 
     }
