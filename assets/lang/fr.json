@@ -5,6 +5,13 @@
     "content":"Ce site a été conçu dans le cadre du module 214 de la foramtion d'infomarticien CFC par ICT."
   },
   "JsonTable": {
-    "title":"Exemple d'un tableau créé à partir d'un fichier JSON"
+    "title":"Exemple d'un tableau créé à partir d'un fichier JSON",
+	  "noFile":"Aucun fichier n'a été chargé...",
+    "noJSON":"Le fichier chargé n'est pas du JSON",
+    "chooseFile":"Choisir un fichier",
+    "submit":"Afficher"
+  },
+  "footer": {
+    "copiright":"Tous droits réservés."
   }
 }

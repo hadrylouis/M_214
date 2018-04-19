@@ -9,8 +9,14 @@ $( document ).ready(function() {
       $("#changeLang").submit();
     });
 
+    // Upload button
+    $('#select_file').click(function () {
+      $("input[type='file']").trigger('click');
+    });
+
     // get uploaded file name and load it in table
     $.getJSON("uploads/userFiles/" + $("#userImgName").data('value'), function(data) {
+
       var personnes = data;
 
       // printing header row
@@ -28,6 +34,10 @@ $( document ).ready(function() {
           $('#tablejson').find('tr:last').append('<td>' + val + '</td>')
         })
       })
+
+      $('html, body').animate({
+        scrollTop: $("#tablejson").offset().top
+      }, 2000);
 
     });
 

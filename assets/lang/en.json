@@ -5,6 +5,13 @@
       "content":"This site was designed as part of module 214 in I.T. ICT CFC."
     },
     "JsonTable": {
-      "title":"Example of a table created from a JSON file"
+      "title":"Example of a table created from a JSON file",
+      "noFile":"No file has been loaded...",
+      "noJSON":"The loaded file is not JSON",
+      "chooseFile":"Choose a file",
+      "submit":"Show"
+    },
+    "footer": {
+      "copiright":"All rights reserved."
     }
 }

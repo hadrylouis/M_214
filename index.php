@@ -1,5 +1,12 @@
 <?php
     require_once "init.php";
+
+    /* debug
+    if(isset($fileextesion) && $fileextesion !== "json"){
+      echo "ERROR " . $error;
+    }
+    //var_dump($fileextesion);
+    */
 ?>
 
 <!DOCTYPE HTML>
@@ -8,7 +15,7 @@
   <head>
     <title>JSON | Module 214</title>
     <meta charset="utf-8" />
-    <link rel="icon" href="images/index3.ico">
+    <link rel="icon" href="images/json.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -72,7 +79,18 @@
         <!-- display-jsons -->
         <section id="section_tableJson">
           <div class="array-json">
-            <h1 id="title"><?php echo $tr['JsonTable']['title'] ?></h1>
+            <h4 id="title" style="font-size: 30px;"><?php echo $tr['JsonTable']['title'] ?></h4>
+
+			<?php
+
+			if(!isset($_FILES['uploadJsonFile'])){
+				?><div id="loadFileInfo" ><h4><?php echo $tr['JsonTable']['noFile'] ?></h4></div><?php
+			} else if(isset($fileextesion) && $fileextesion !== "json"){
+        ?><div id="loadFileInfo" ><h4><?php echo $tr['JsonTable']['noJSON'] ?></h4></div><?php
+      }
+
+			?>
+
             <table id="tablejson" class="table table-striped w-50 p-3 text-centered">
               <thead class="thead-inverse">
                 <tr></tr>
@@ -84,10 +102,11 @@
         </section>
 
         <!-- upload -->
-        <div class"container">
+        <div class"container" id="loadFileForm">
             <form class="" action="" method="post" enctype="multipart/form-data">
-              <input type="file" name="uploadJsonFile">
-              <input type="submit" value="Submit">
+              <input id="input_file" type="file" name="uploadJsonFile" hidden>
+              <span id='select_file' ><?php echo $tr['JsonTable']['chooseFile'] ?></span>
+              <input id="submit_file" type="submit" value="<?php echo $tr['JsonTable']['submit'] ?>" >
             </form>
         </div>
 
@@ -97,7 +116,7 @@
               <div class="12u">
                   <div class="copyright">
                     <ul class="menu">
-                      <li>&copy; 2018. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP / helios</a></li><li> &lt;/&gt; with &hearts; by <a href="https://www.github.com/richmartins/">@richmartins</a> |  <a href="https://www.github.com/hadrylouis/">@hadrylouis</a></li>
+                      <li>&copy; 2018. <?php echo $tr['footer']['copiright'] ?></li><li>Design: <a href="http://html5up.net">HTML5 UP / helios</a></li><li> &lt;/&gt; with &hearts; by <a href="https://www.github.com/richmartins/">@richmartins</a> |  <a href="https://www.github.com/hadrylouis/">@hadrylouis</a></li>
                     </ul>
                   </div>
               </div>

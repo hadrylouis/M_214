@@ -84,10 +84,34 @@
 
 }
 
-
-
-
-
 #section_tableJson {
   margin-bottom: 150px;
+}
+
+#loadFileInfo{
+  text-align:center;
+  font-style:italic; 
+  margin-top: 40px;
+}
+
+/********** UPLOAD FILE FORM **************/
+#loadFileForm {
+  text-align:center;
+  margin-bottom:50px;
+}
+
+#input_file {
+  display: inline-block;
+  position: relative;
+}
+
+#select_file {
+  cursor: pointer;
+  padding: 13px;
+  box-shadow: 0 1px 4px;
+  border-radius: 10px;
+}
+
+#submit_file{
+  display: inline-block;
 }

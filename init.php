@@ -4,16 +4,21 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
-    session_start();
+    $error = "";
+
+    $fileextesion = "";
 
     #### upload ####
+
     try {
+        /*
+        //session_start();
         // Submit but no file given
         if (!isset($_FILES['uploadJsonFile']['error']) ||
              is_array($_FILES['uploadJsonFile']['error'])) {
-                 session_destroy();
-                 session_unset();
-                 throw new RuntimeException('Invalid parameters.');
+                // session_destroy();
+                // session_unset();
+               throw new RuntimeException('Invalid parameters.');
         }
 
 
@@ -35,6 +40,8 @@
             throw new RuntimeException('Exceeded filesize limit.');
         }
 
+        */
+
         /* To do :
          * check file type : P.S. json MIME type => application/javascript
          */
@@ -48,17 +55,20 @@
           $filedir = "uploads/userFiles";
           $fileextesion = strtolower(pathinfo($filedir . $filename ,PATHINFO_EXTENSION));
 
+          //echo $fileextesion;
+
           /** Check if uploaded file is JSON type **/
           if($fileextesion != "json" ) {
-            throw new RuntimeException('Error NO JSON');
+            //throw new RuntimeException('Error NO JSON');
+            $error = "nojson";
           } else {
             move_uploaded_file($_FILES["uploadJsonFile"]["tmp_name"], "uploads/userFiles/" . $_FILES["uploadJsonFile"]["name"]);
             $_SESSION['uploadJsonFile'] = $_FILES['uploadJsonFile']['name'];
           }
 
       } else {
-          session_destroy();
-          session_unset();
+          //session_destroy();
+          //session_unset();
       }
 
     } catch (RuntimeException $e) {
@@ -85,7 +95,6 @@
 
 
     #### load languge file ####
-
     $lang = $fr_class = $en_class = '';
     /* Récupération de la langue dans la chaîne get */
     $lang = (isset($_GET['lang']) && file_exists('assets/lang/'.$_GET['lang'].'.json')) ? $_GET['lang'] : 'fr';
