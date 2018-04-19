@@ -1,7 +1,14 @@
 # M_214
 
 ## Descriptions
-Site web censé nous aider à faire le cours du module 214 de la formation d'informaticien CFC d'ICT.
+Ce Site web a été créé pour nous aider à faire le cours du module 214 de la formation d'informaticien CFC par ICT.
 
-## Autres détails
-coming soon...
+## Design
+Thème utilisé : Helios par [HTML5 UP](https://html5up.net/)
+
+## Dépendances
+ - JQuery
+ - Bootstrap
+ - Animate.css
+
+
