@@ -2,10 +2,11 @@
   "header": {
     "title":"Bonjour, bienvenue sur ce site.",
     "start":"Débuter",
-    "content":"Ce site a été conçu dans le cadre du module 214 de la foramtion d'infomarticien CFC par ICT."
+    "content":"Ce site a été conçu dans le cadre du module 214 de la foramtion d'infomarticien CFC par ICT",
+    "link_pres":"Trouvez la présentation sur : "
   },
   "JsonTable": {
-    "title":"Exemple d'un tableau créé à partir d'un fichier JSON",
+    "title":"Affichez votre fichier JSON",
 	  "noFile":"Aucun fichier n'a été chargé...",
     "noJSON":"Le fichier chargé n'est pas du JSON",
     "chooseFile":"Choisir un fichier",

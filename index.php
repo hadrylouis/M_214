@@ -65,6 +65,7 @@
           <header>
             <h2><?php echo $tr['header']['title'] ?></h2>
             <p><?php echo $tr['header']['content'] ?></p>
+            <p ><?php echo $tr['header']['link_pres'] ?> <a id="link_pres" selected href="https://hackmd.io/p/rJuLKiquG">https://hackmd.io/p/rJuLKiquG</a> </p>
           </header>
         </section>
 

@@ -69,6 +69,11 @@
   padding-top: 50px;
 }
 
+#link_pres {
+  color: #ef8376;
+  border-bottom-color: transparent;
+}
+
 .table {
   border-radius: 5px;
   width: 50%;
@@ -90,7 +95,7 @@
 
 #loadFileInfo{
   text-align:center;
-  font-style:italic; 
+  font-style:italic;
   margin-top: 40px;
 }
 

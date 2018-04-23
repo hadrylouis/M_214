@@ -2,10 +2,11 @@
     "header": {
       "title":"Hello, welcome to this site.",
       "start":"Start",
-      "content":"This site was designed as part of module 214 in I.T. ICT CFC."
+      "content":"This site was made as part of module 214 from the ICT Information Technology CFC",
+      "link_pres":"Find the presentation here : "
     },
     "JsonTable": {
-      "title":"Example of a table created from a JSON file",
+      "title":"Display your JSON file",
       "noFile":"No file has been loaded...",
       "noJSON":"The loaded file is not JSON",
       "chooseFile":"Choose a file",
